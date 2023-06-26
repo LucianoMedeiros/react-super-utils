@@ -1,0 +1,284 @@
+/* ****************************** */
+/* --------- STRUCTURE  ----------*/
+/* ****************************** */
+:root {
+  --text-color: #444;
+  --border-color: #aaa;
+  --font-size: 14px;
+  --focus-color: rgb(178, 178, 255);
+}
+
+.rsu-cpf-input {
+  display: grid;
+  width: 100%;
+  /* min-width: 240px; */
+}
+.rsu-cpf-input input::placeholder,
+.rsu-cpf-input input:-ms-input-placeholder,
+.rsu-cpf-input input::-ms-input-placeholder {
+  opacity: 0.5; /* Firefox */
+}
+.rsu-cpf-input input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: white !important;
+  color: fieldtext !important;
+}
+.rsu-cpf-input .field {
+  position: relative;
+  width: 100%;
+}
+.rsu-cpf-input label {
+  height: 32px;
+  line-height: 32px;
+  color: var(--text-color);
+  font-size: var(--font-size);
+  padding: 0 10px 0 0px;
+  text-align: left;
+}
+.rsu-cpf-input input {
+  box-sizing: border-box;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-size: var(--font-size);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  transition: all 0.5s;
+}
+.rsu-cpf-input input:focus-visible {
+  outline: var(--focus-color) auto 1px;
+  box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 25%);
+}
+.rsu-cpf-input label .info-message-icon {
+  display: inline;
+  position: relative;
+}
+.rsu-cpf-input label .info-message-icon svg {
+  font-size: 14px;
+  margin: 1px 2px -2px 5px;
+  cursor: pointer;
+}
+
+.rsu-cpf-input label .info-message-icon span {
+  position: absolute;
+  bottom: 20px;
+  left: 0px;
+  display: flex;
+  line-height: normal;
+  width: max-content;
+  background: #ddd;
+  padding: 3px 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  color: #777;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.rsu-cpf-input label .info-message-icon svg:hover + span {
+  opacity: 1;
+}
+
+.rsu-cpf-input .field .before-icon {
+  position: absolute;
+  left: 10px;
+  bottom: 0px;
+  z-index: 1;
+  font-size: 22px;
+  color: var(--text-color);
+}
+.rsu-cpf-input.has-before-icon .field input {
+  padding-left: 40px;
+}
+
+.rsu-cpf-input .field .after-icon {
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+  z-index: 1;
+  font-size: 22px;
+  color: var(--text-color);
+  transition: all 0.5s;
+}
+.rsu-cpf-input.has-after-icon .field input {
+  padding-left: 40px;
+}
+
+/* ****************************** */
+/* -------- RESET BUTTON  --------*/
+/* ****************************** */
+
+.rsu-cpf-input.has-reset-button input {
+  padding-right: 30px;
+}
+.rsu-cpf-input.has-reset-button button {
+  position: absolute;
+  right: 7px;
+  top: 10px;
+  bottom: 10px;
+  z-index: 2;
+  font-size: var(--font-size);
+  border: 1px solid var(--border-color);
+  color: var(--border-color);
+  padding: 2px 4px;
+  line-height: 11px;
+  font-family: arial;
+  border-radius: 0px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.rsu-cpf-input.has-reset-button .field:hover button {
+  opacity: 1;
+}
+.rsu-cpf-input.has-reset-button.has-after-icon .field:hover input {
+  padding-right: 50px;
+}
+.rsu-cpf-input.has-reset-button.has-after-icon .field:hover .after-icon {
+  right: 30px;
+}
+
+/* ****************************** */
+/* ------- ERROR MESSAGES  -------*/
+/* ****************************** */
+
+.rsu-cpf-input.error input {
+  border: 1px solid tomato;
+}
+.rsu-cpf-input.error label {
+  color: tomato;
+}
+.rsu-cpf-input .field .feedback {
+  position: absolute;
+  top: calc(100% - 10px);
+  right: 0;
+  font-size: 10px;
+  padding: 10px 5px 2px 5px;
+  z-index: 0;
+}
+.rsu-cpf-input .field .feedback.error {
+  background-color: tomato;
+  color: white;
+}
+.rsu-cpf-input .field .feedback.success {
+  background-color: #97ff97;
+  color: green;
+}
+
+/* ****************************** */
+/* ---------- THEME A  -----------*/
+/* ****************************** */
+.rsu-cpf-input.theme-a {
+  grid-template-columns: auto 1fr;
+}
+
+/* ****************************** */
+/* ------ THEME A Rounded  -------*/
+/* ****************************** */
+.rsu-cpf-input.theme-a-rounded {
+  grid-template-columns: auto 1fr;
+}
+.rsu-cpf-input.theme-a-rounded input {
+  border-radius: 8px;
+}
+.rsu-cpf-input.theme-a-rounded.has-reset-button button {
+  border-radius: 4px;
+}
+.rsu-cpf-input.theme-a-rounded .field .feedback {
+  border-radius: 0 0 4px 4px;
+}
+/* ****************************** */
+/* ---------- THEME B  -----------*/
+/* ****************************** */
+.rsu-cpf-input.theme-b {
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+}
+/* ****************************** */
+/* ------ THEME B Rounded  -------*/
+/* ****************************** */
+.rsu-cpf-input.theme-b-rounded {
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+}
+.rsu-cpf-input.theme-b-rounded input {
+  border-radius: 8px;
+}
+.rsu-cpf-input.theme-b-rounded.has-reset-button button {
+  border-radius: 4px;
+}
+.rsu-cpf-input.theme-b-rounded .field .feedback {
+  border-radius: 0 0 4px 4px;
+}
+/* ****************************** */
+/* ---------- THEME C  -----------*/
+/* ****************************** */
+.rsu-cpf-input.theme-c {
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+}
+.rsu-cpf-input.theme-c {
+  display: block;
+  position: relative;
+}
+.rsu-cpf-input.theme-c label {
+  background: linear-gradient(
+    180deg,
+    rgb(255 255 255) 0%,
+    rgb(255 255 255) 54%,
+    rgba(255, 120, 0, 0) 55%
+  );
+  position: absolute;
+  left: 10px;
+  z-index: 3;
+  top: -8px;
+  font-size: 12px;
+  height: auto;
+  line-height: normal;
+  padding: 0 3px;
+}
+.rsu-cpf-input.theme-c input {
+  padding: 7px 10px 0 10px;
+}
+
+/* ****************************** */
+/* ---------- THEME C  -----------*/
+/* ****************************** */
+.rsu-cpf-input.theme-c-rounded {
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+}
+.rsu-cpf-input.theme-c-rounded {
+  display: block;
+  position: relative;
+}
+.rsu-cpf-input.theme-c-rounded label {
+  background: linear-gradient(
+    180deg,
+    rgb(255 255 255) 0%,
+    rgb(255 255 255) 60%,
+    rgba(255, 120, 0, 0) 60%
+  );
+  position: absolute;
+  left: 10px;
+  z-index: 3;
+  top: -8px;
+  font-size: 12px;
+  height: auto;
+  line-height: normal;
+  padding: 0 3px;
+}
+.rsu-cpf-input.theme-c-rounded input {
+  padding: 0px 10px 0 10px;
+  border-radius: 8px;
+  height: 40px;
+}
+.rsu-cpf-input.theme-c-rounded.has-reset-button button {
+  border-radius: 4px;
+}
+.rsu-cpf-input.theme-c-rounded .field .feedback {
+  border-radius: 0 0 4px 4px;
+}
